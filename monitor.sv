@@ -26,7 +26,7 @@ virtual task run_phase(uvm_phase phase);
 
     forever begin
       @(cif.cb_mon); // every clock, post-NBA
-       tr = transaction::type_id::create("tr", this);
+       tr = transaction::type_id::create("tr");
       tr.rst   = cif.cb_mon.rst;
       tr.en    = cif.cb_mon.en;
       tr.up_dn = cif.cb_mon.up_dn;
@@ -39,6 +39,7 @@ virtual task run_phase(uvm_phase phase);
       send.write(tr);
     end
   endtask
+
 
 
 endclass
